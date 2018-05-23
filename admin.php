@@ -1,11 +1,13 @@
 <?php
+require 'init.php';
 
-require 'vendor/autoload.php';
+$app = new App(true);
 
 
-$app = new \atk4\ui\App('Welcome to Agile Toolkit');
-$app->initLayout('Admin');
 
+$app ->add ('CRUD')->setModel(new Guest($app->db));
+
+exit;
 
 /****************************************************************
  * You can now remove the text below and write your own Web App *
@@ -34,4 +36,3 @@ session_start();
 $db = new \atk4\data\Persistence_Array($_SESSION);
 
 $app->add(['CRUD', 'paginator'=>false])->setModel(new TestClient($db, 'test-client'));
-

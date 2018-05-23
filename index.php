@@ -1,9 +1,13 @@
 <?php
 
 require 'vendor/autoload.php';
+require 'init.php'
 
-$app = new \atk4\ui\App('Welcome to Thomas WEB APP');
-$app->initLayout('Centered');
+$app = new App();
+
+$app ->add ('HelloWorld');
+
+exit;
 
 
 /******************************************************************
