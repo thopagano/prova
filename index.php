@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-require 'init.php'
+require 'init.php';
 
 $app = new App();
 

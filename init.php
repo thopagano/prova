@@ -12,20 +12,20 @@ class App extends \atk4\ui\App
     else {
       $this->initLayout ('Centered');
     }
-    $this->dbConnect ('mysql://roo:root@localhost/');
+    $this->dbConnect ('mysql://root:@localhost/party-app');
   }
 }
 
 
-class Guest extends \atk4\ui\Model
+class Guest extends \atk4\data\Model
 {
   public $table='guest';
   function init(){
     parent::init ();
 
-    $this->addfields(['name', 'suname', 'phone','email']);
-    $this->addfiel(['age']);
-    $this->addfiel(['unit_of_drink'],['hint'=>'Bring your own Drink - how mauch bottle will you bring?']);
+    $this->addfields(['name', 'surname', 'phone','email']);
+    $this->addFields(['age']);
+    $this->addfields(['units_of_drink']);
   }
 
 }
