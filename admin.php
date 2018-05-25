@@ -2,37 +2,4 @@
 require 'init.php';
 
 $app = new App(true);
-
-
-
 $app ->add ('CRUD')->setModel(new Guest($app->db));
-
-exit;
-
-/****************************************************************
- * You can now remove the text below and write your own Web App *
- *                                                              *
- * Thank you for trying out Agile Toolkit                       *
- ****************************************************************/
-
-// Default installation gives warning, so update php.ini the remove this line
-date_default_timezone_set('UTC');
-
-$app->layout->leftMenu->addItem(['Front-end demo', 'icon'=>'puzzle'], ['index']);
-$app->layout->leftMenu->addItem(['Admin demo', 'icon'=>'dashboard'], ['admin']);
-
-class TestClient extends \atk4\data\Model {
-    function init() {
-        parent::init();
-
-        $this->addField('full_name');
-        $this->addField('company');
-        $this->addField('added', ['type'=>'date']);
-        $this->addField('balance', ['type'=>'money']);
-    }
-}
-
-session_start();
-$db = new \atk4\data\Persistence_Array($_SESSION);
-
-$app->add(['CRUD', 'paginator'=>false])->setModel(new TestClient($db, 'test-client'));
